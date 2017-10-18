@@ -1,0 +1,21 @@
+<div class="">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Team Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of playersList">
+        <td>{{ player.player }}</td>
+        <td>{{ player.status }}</td>
+        <td>
+          <button (click)="gameStatus(player._id, 'playing')" class="btn" [ngClass]="{playing: player.status === 'playing' }">Playing</button> 
+          <button (click)="gameStatus(player._id, 'notPlaying')" class="btn" [ngClass]="{notPlaying: player.status === 'notPlaying' }">Not Playing</button> 
+          <button (click)="gameStatus(player._id, 'undecided')" class="btn" [ngClass]="{undecided: player.status === 'Undecided' }">Undecided</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,24 @@
+
+<div class="container body">
+  <h4>Add Player</h4>
+  <form (submit)="onSubmit()" #heroForm="ngForm" class="col-xs-8">
+    <div class="form-group">
+      <label for="name">Player Name:</label>
+      <input sytle="width: 80%;" type="name" class="form-control col-xs-6" id="name" name="player" required minlength="4" [(ngModel)]="player.player" #currentPlayer='ngModel'>
+      <span *ngIf="currentPlayer.errors && (currentPlayer.dirty || currentPlayer.touched)" class="alert">
+        <span class="warn" [hidden]="!currentPlayer.errors.required">Name is required.</span>
+        <span class="warn" [hidden]="!currentPlayer.errors.minlength">Name must be at least 4 characters long.</span>
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="position">Preferred Position:</label>
+      <input sytle="width: 80%;" type="position" class="form-control col-xs-6" id="position" name="position" required minlength="4" [(ngModel)]="player.position" #currentPosition='ngModel'>
+      <span *ngIf="currentPosition.errors && (currentPosition.dirty || currentPosition.touched)" class="alert">
+        <span class="warn" [hidden]="!currentPosition.errors.required">Position is required.</span>
+        <span class="warn" [hidden]="!currentPosition.errors.minlength">Position must be at least 4 characters long.</span>
+      </span>
+    </div>
+    <br>
+    <button type="submit" [disabled]="!heroForm.form.valid" class="btn btn-success col-xs-4">ADD</button>
+  </form>
+</div>

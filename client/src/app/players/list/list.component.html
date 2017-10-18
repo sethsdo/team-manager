@@ -1,0 +1,19 @@
+<div class="">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Team Name</th>
+        <th>Prefferred Position</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of playersList">
+        <td>{{ player.player }}</td>
+        <td>{{ player.position}}</td>
+        <td><button (click)="destroy(player._id)" class="btn btn-danger" >DELETE</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <p>{{ playersList.__zone_symbol__value | json }}</p> -->
+</div>
